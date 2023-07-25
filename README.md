@@ -15,4 +15,5 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [Challenges](https://www.hackerrank.com/challenges/challenges/problem) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Challenges.sql) |
 | [Ollivander's Inventory](https://www.hackerrank.com/challenges/harry-potter-and-wands/problem) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Ollivander's%20Inventory.sql) |
 | [The Report](https://www.hackerrank.com/challenges/the-report/problem) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/The%20Report.sql) |
-
+| [Contest Leaderboard](https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Contest%20Leaderboard.sql) |
+| [Placements](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Placements.sql) |
