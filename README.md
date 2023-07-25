@@ -1,4 +1,4 @@
-# Practice SQL Scripts From Interview Prep Websites
+# Practice SQL Scripts From HackerRank
 ------------
 
 These are scripts that answer questions from <a href="https://hackerrank.com">hackerank</a>. Links to questions and my answers are below!
