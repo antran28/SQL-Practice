@@ -3,7 +3,7 @@
 
 These are scripts that answer questions from <a href="https://hackerrank.com">hackerank</a>. Links to questions and my answers are below!
 
-## Hacker Rank
+## SQL Challenges
 ---------------
 
 | Question                | Difficulty Level              | Answer                 |
