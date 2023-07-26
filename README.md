@@ -16,7 +16,7 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [The Report](https://www.hackerrank.com/challenges/the-report/problem) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/The%20Report.sql) |
 | [Contest Leaderboard](https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Contest%20Leaderboard.sql) |
 | [Placements](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Placements.sql) |
-
+| [New Companies](https://www.hackerrank.com/challenges/the-company/problem) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/New%20Companies.sql) |
 ## License
 This repository is licensed under MIT License - see [License](LICENSE) for more details
 
