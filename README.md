@@ -6,8 +6,8 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 ## SQL Challenges
 ---------------
 
-| Question                | Difficulty Level              | Answer                 |
-|-------------------------|-------------------------|------------------------:|
+| Question                | Difficulty Level              | Subdomains              | Answer                 |
+|-------------------------|-------------------------|-------------------------|------------------------:|
 | <a href="https://www.hackerrank.com/challenges/binary-search-tree-1/problem">Binary Tree Nodes</a> | Medium | <a href="https://github.com/antran28/SQL-Practice/blob/main/Solution/Binary%20Tree%20Nodes.sql">Solution</a> |
 | [Weather Observation Station 20](https://www.hackerrank.com/challenges/weather-observation-station-20/problem?isFullScreen=true) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Weather%20Observation%20Station%2020.sql) |
 | [Top Competitors](https://www.hackerrank.com/challenges/full-score/problem) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Top%20Competitors.sql) |
@@ -16,7 +16,7 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [The Report](https://www.hackerrank.com/challenges/the-report/problem) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/The%20Report.sql) |
 | [Contest Leaderboard](https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Contest%20Leaderboard.sql) |
 | [Placements](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Placements.sql) |
-| [New Companies](https://www.hackerrank.com/challenges/the-company/problem) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/New%20Companies.sql) |
+| [New Companies](https://www.hackerrank.com/challenges/the-company/problem) | Medium | Advanced Select | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/New%20Companies.sql) |
 ## License
 This repository is licensed under MIT License - see [License](LICENSE) for more details
 
