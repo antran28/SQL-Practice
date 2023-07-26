@@ -15,7 +15,7 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [Ollivander's Inventory](https://www.hackerrank.com/challenges/harry-potter-and-wands/problem) | Medium | Basic Join | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Ollivander's%20Inventory.sql) |
 | [The Report](https://www.hackerrank.com/challenges/the-report/problem) | Medium | Basic Join | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/The%20Report.sql) |
 | [Contest Leaderboard](https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true) | Medium | Basic Join | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Contest%20Leaderboard.sql) |
-| [Placements](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Placements.sql) |
+| [Placements](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true) | Medium | Advanced Join | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Placements.sql) |
 | [New Companies](https://www.hackerrank.com/challenges/the-company/problem) | Medium | Advanced Select | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/New%20Companies.sql) |
 ## License
 This repository is licensed under MIT License - see [License](LICENSE) for more details
