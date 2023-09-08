@@ -26,11 +26,11 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [Histogram of Tweets](https://datalemur.com/questions/sql-histogram-tweets) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Histogram%20of%20Tweets.sql) |
 | [Data Science Skills](https://datalemur.com/questions/matching-skills) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Data%20Science%20Skills.sql) |
 | [Page With No Likes](https://datalemur.com/questions/sql-page-with-no-likes) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Page%20With%20No%20Likes.sql) |
-| [Ollivander's Inventory](https://www.hackerrank.com/challenges/harry-potter-and-wands/problem) | Easy |[Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Ollivander's%20Inventory.sql) |
-| [The Report](https://www.hackerrank.com/challenges/the-report/problem) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/The%20Report.sql) |
-| [Contest Leaderboard](https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Contest%20Leaderboard.sql) |
-| [Placements](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true) | Easy |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Placements.sql) |
-| [New Companies](https://www.hackerrank.com/challenges/the-company/problem) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/New%20Companies.sql) |
+| [Unfinished Parts](https://datalemur.com/questions/tesla-unfinished-parts) | Easy |[Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Unfinished%20Parts.sql) |
+| [Laptop vs. Mobile Viewership](https://datalemur.com/questions/laptop-mobile-viewership) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Laptop%20vs.%20Mobile%20Viewership.sql) |
+| [Average Post Hiatus (Part 1)](https://datalemur.com/questions/sql-average-post-hiatus-1) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Average%20Post%20Hiatus%20(Part%201).sql) |
+| [Teams Power Users](https://datalemur.com/questions/teams-power-users) | Easy |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Teams%20Power%20Users.sql) |
+| [Duplicate Job Listings](https://datalemur.com/questions/duplicate-job-listings) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Duplicate%20Job%20Listings.sql) |
 | <a href="https://www.hackerrank.com/challenges/binary-search-tree-1/problem">Binary Tree Nodes</a> | Easy | <a href="https://github.com/antran28/SQL-Practice/blob/main/Solution/Binary%20Tree%20Nodes.sql">Solution</a> |
 
 ## License
