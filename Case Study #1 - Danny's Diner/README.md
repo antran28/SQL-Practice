@@ -99,7 +99,7 @@ Danny wants to use the data to answer a few simple questions about his customers
 
 ---
 
-**Query #2. How many days has each customer visited the restaurant?**
+**Query #2: How many days has each customer visited the restaurant?**
 
 ````sql
 SELECT
@@ -116,5 +116,37 @@ ORDER BY dannys_diner.sales.customer_id ASC;
 | B           | 6          |
 | C           | 2          |
 
+---
 
+**Query #3: What was the first item from the menu purchased by each customer?**
+
+````sql
+WITH RankedPurchases AS (
+	SELECT
+  		dannys_diner.sales.customer_id, 
+		dannys_diner.menu.product_name,
+		dannys_diner.sales.order_date,
+    	DENSE_RANK() OVER (PARTITION BY dannys_diner.sales.customer_id ORDER BY dannys_diner.sales.order_date) AS purchase_rank
+	FROM dannys_diner.sales
+	INNER JOIN dannys_diner.menu
+	ON dannys_diner.sales.product_id = dannys_diner.menu.product_id
+)
+SELECT
+  customer_id,
+  product_name AS first_purchase
+FROM RankedPurchases
+WHERE purchase_rank = 1
+GROUP BY customer_id, first_purchase;
+````
+#### Answer:
+| customer_id | product_name | 
+| ----------- | ----------- |
+| A           | curry        | 
+| A           | sushi        | 
+| B           | curry        | 
+| C           | ramen        |
+
+---
+
+**Query #4: What is the most purchased item on the menu and how many times was it purchased by all customers?**
 [View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
