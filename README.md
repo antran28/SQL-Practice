@@ -33,7 +33,7 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [Duplicate Job Listings](https://datalemur.com/questions/duplicate-job-listings) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Duplicate%20Job%20Listings.sql) |
 | [Cities With Completed Trades](https://datalemur.com/questions/completed-trades) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Cities%20With%20Completed%20Trades.sql) |
 | [Average Review Ratings](https://datalemur.com/questions/sql-avg-review-ratings) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Average%20Review%20Ratings.sql) |
-| [Page With No Likes](https://datalemur.com/questions/sql-page-with-no-likes) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Page%20With%20No%20Likes.sql) |
+| [App Click-through Rate (CTR)](https://datalemur.com/questions/click-through-rate) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Page%20With%20No%20Likes.sql) |
 | [Unfinished Parts](https://datalemur.com/questions/tesla-unfinished-parts) | Easy |[Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Unfinished%20Parts.sql) |
 | [Laptop vs. Mobile Viewership](https://datalemur.com/questions/laptop-mobile-viewership) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Laptop%20vs.%20Mobile%20Viewership.sql) |
 | [Average Post Hiatus (Part 1)](https://datalemur.com/questions/sql-average-post-hiatus-1) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Average%20Post%20Hiatus%20(Part%201).sql) |
