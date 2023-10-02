@@ -149,4 +149,55 @@ GROUP BY customer_id, first_purchase;
 ---
 
 **Query #4: What is the most purchased item on the menu and how many times was it purchased by all customers?**
+
+````sql
+SELECT 
+  menu.product_name,
+  COUNT(sales.product_id) AS most_purchased_item
+FROM dannys_diner.sales
+INNER JOIN dannys_diner.menu
+  ON sales.product_id = menu.product_id
+GROUP BY menu.product_name
+ORDER BY most_purchased_item DESC
+LIMIT 1;
+````
+#### Answer:
+| most_purchased | product_name | 
+| ----------- | ----------- |
+| 8       | ramen |
+
+---
+
+**Query #5: What is the most purchased item on the menu and how many times was it purchased by all customers?**
+````sql
+WITH RepeatPurchases AS (
+	SELECT
+  		dannys_diner.sales.customer_id, 
+		dannys_diner.menu.product_name,
+		COUNT (dannys_diner.sales.product_id) AS times_purchased,
+  		RANK() OVER(
+				PARTITION BY dannys_diner.sales.customer_id 
+				ORDER BY COUNT (dannys_diner.sales.product_id) DESC)
+		AS ranking
+	FROM dannys_diner.sales
+	INNER JOIN dannys_diner.menu
+	ON dannys_diner.sales.product_id = dannys_diner.menu.product_id
+  	GROUP BY dannys_diner.sales.customer_id, dannys_diner.menu.product_name
+)
+SELECT customer_id, product_name AS most_fav_dish
+FROM RepeatPurchases
+WHERE ranking =1;
+````
+#### Answer:
+| customer_id | most_fav_dish |
+| ----------- | ------------- |
+| A           | ramen         |
+| B           | ramen         |
+| B           | curry         |
+| B           | sushi         |
+| C           | ramen         |
+
+---
+
+
 [View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
