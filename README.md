@@ -1,7 +1,7 @@
 
 ![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 [![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/antran28)
-[![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/ndleah?tab=repositories)
+
 # Solved SQL Challenges from Danny Ma, HackerRank and DataLemur
 ------------
 ## ⭐️ 8-Week SQL Challenges <img src="https://s3.amazonaws.com/thinkific-import/357412/n0nS0vA3RmOtzsH99jyf_Data_With_Danny_Round_Logo_png" align="right" width="120" />
