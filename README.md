@@ -1,6 +1,6 @@
 
 ![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
-[![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/ndleah)
+[![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/antran28)
 [![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/ndleah?tab=repositories)
 # Solved SQL Challenges from Danny Ma, HackerRank and DataLemur
 ------------
