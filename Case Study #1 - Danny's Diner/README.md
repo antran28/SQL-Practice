@@ -90,7 +90,7 @@ Danny wants to use the data to answer a few simple questions about his customers
     GROUP BY dannys_diner.sales.customer_id
     ORDER BY dannys_diner.sales.customer_id ASC;
 ````
-
+#### Answer:
 | customer_id | total_spent |
 | ----------- | ----------- |
 | A           | 76          |
@@ -98,5 +98,23 @@ Danny wants to use the data to answer a few simple questions about his customers
 | C           | 36          |
 
 ---
+
+**Query #2. How many days has each customer visited the restaurant?**
+
+````sql
+SELECT
+  	dannys_diner.sales.customer_id, 
+	COUNT( DISTINCT dannys_diner.sales.order_date) AS days_visited
+FROM dannys_diner.sales
+GROUP BY dannys_diner.sales.customer_id
+ORDER BY dannys_diner.sales.customer_id ASC; 
+````
+#### Answer:
+| customer_id | visit_count |
+| ----------- | ----------- |
+| A           | 4          |
+| B           | 6          |
+| C           | 2          |
+
 
 [View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
