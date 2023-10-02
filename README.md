@@ -36,9 +36,9 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [App Click-through Rate (CTR)](https://datalemur.com/questions/click-through-rate) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/App%20Click-through%20Rate%20(CTR).sql) |
 | [Second Day Confirmation](https://datalemur.com/questions/second-day-confirmation) | Easy |[Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Second%20Day%20Confirmation.sql) |
 | [Cards Issued Difference](https://datalemur.com/questions/cards-issued-difference) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Cards%20Issued%20Difference.sql) |
-| [Average Post Hiatus (Part 1)](https://datalemur.com/questions/sql-average-post-hiatus-1) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Average%20Post%20Hiatus%20(Part%201).sql) |
-| [Teams Power Users](https://datalemur.com/questions/teams-power-users) | Easy |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Teams%20Power%20Users.sql) |
-| [Duplicate Job Listings](https://datalemur.com/questions/duplicate-job-listings) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Duplicate%20Job%20Listings.sql) |
+| [Compressed Mean](https://datalemur.com/questions/alibaba-compressed-mean) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Compressed%20Mean.sql) |
+| [Pharmacy Analytics (Part 1)](https://datalemur.com/questions/top-profitable-drugs) | Easy |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%201).sql) |
+| [Pharmacy Analytics (Part 2)](https://datalemur.com/questions/duplicate-job-listings) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%202).sql) |
 
 ## License
 This repository is licensed under MIT License - see [License](LICENSE) for more details
