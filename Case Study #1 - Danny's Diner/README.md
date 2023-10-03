@@ -198,6 +198,64 @@ WHERE ranking =1;
 | C           | ramen         |
 
 ---
+**Query #6: Which item was purchased first by the customer after they became a member?**
+````sql
+WITH SaleHistory AS (
+	SELECT
+  		dannys_diner.sales.customer_id, 
+		dannys_diner.sales.order_date,
+		dannys_diner.menu.product_name,
+		dannys_diner.members.join_date
+	FROM dannys_diner.sales
+		INNER JOIN dannys_diner.members
+		ON dannys_diner.sales.customer_id = dannys_diner.members.customer_id
+  		INNER JOIN dannys_diner.menu 
+        ON dannys_diner.sales.product_id = dannys_diner.menu.product_id
+	WHERE dannys_diner.sales.order_date > dannys_diner.members.join_date
+)
+SELECT DISTINCT ON (customer_id) customer_id, product_name
+FROM SaleHistory
+ORDER BY customer_id ASC;
+````
+#### In this query:
+- We create a CTE (SaleHistory) that joins the members, sales, and menu tables based on the customer_id and product_id. We also filter for purchases that occurred after the customer's membership start date.
+- Within the CTE, we use the ORDER BY clause to order the results by customer_id and purchase_date. This helps us identify the first purchase after becoming a member for each customer.
+- In the main query, we use DISTINCT ON (customer_id) to select only the first row for each customer, ensuring that we get only the first purchase after becoming a member.
+This query will give you the first item purchased by each customer after they became a member.
+#### Answer:
+| customer_id | product_name |
+| ----------- | ------------ |
+| A           | ramen        |
+| B           | sushi        |
 
+---
+**Query #7: Which item was purchased just before the customer became a member?**
+````sql
+WITH SaleHistory AS (
+	SELECT
+  		dannys_diner.sales.customer_id, 
+		dannys_diner.sales.order_date,
+		dannys_diner.menu.product_name,
+		dannys_diner.members.join_date
+	FROM dannys_diner.sales
+		INNER JOIN dannys_diner.members
+		ON dannys_diner.sales.customer_id = dannys_diner.members.customer_id
+  		INNER JOIN dannys_diner.menu 
+        ON dannys_diner.sales.product_id = dannys_diner.menu.product_id
+	WHERE dannys_diner.sales.order_date < dannys_diner.members.join_date
+)
+SELECT DISTINCT ON (customer_id) customer_id, product_name
+FROM SaleHistory
+ORDER BY customer_id ASC;
+````
 
+#### Answer:
+| customer_id | product_name |
+| ----------- | ------------ |
+| A           | sushi        |
+| B           | sushi        |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
 [View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
