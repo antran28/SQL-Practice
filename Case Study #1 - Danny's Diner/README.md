@@ -256,6 +256,63 @@ ORDER BY customer_id ASC;
 | B           | sushi        |
 
 ---
+**Query #8: What is the total items and amount spent for each member before they became a member?**
+````sql
+SELECT
+  	dannys_diner.sales.customer_id, 
+	COUNT(dannys_diner.sales.product_id) AS total_items,
+	SUM(dannys_diner.menu.price) AS total_spent
+FROM dannys_diner.sales
+	INNER JOIN dannys_diner.members
+	ON dannys_diner.sales.customer_id = dannys_diner.members.customer_id
+  	INNER JOIN dannys_diner.menu 
+        ON dannys_diner.sales.product_id = dannys_diner.menu.product_id
+WHERE dannys_diner.sales.order_date < dannys_diner.members.join_date
+GROUP BY dannys_diner.sales.customer_id
+ORDER BY dannys_diner.sales.customer_id ASC;
+````
 
-[View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
+#### Answer:
+| customer_id | total_items | total_sales |
+| ----------- | ---------- |----------  |
+| A           | 2 |  25       |
+| B           | 3 |  40       |
+
+---
+**Query #9: If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?**
+````sql
+SELECT
+  	dannys_diner.sales.customer_id, 
+	SUM(
+		CASE 
+			WHEN dannys_diner.menu.product_name = 'sushi'
+			THEN 20 * dannys_diner.menu.price
+			ELSE 10 * dannys_diner.menu.price
+		END
+		) AS total_points
+FROM dannys_diner.sales
+  	INNER JOIN dannys_diner.menu 
+       ON dannys_diner.sales.product_id = dannys_diner.menu.product_id
+GROUP BY dannys_diner.sales.customer_id
+ORDER BY dannys_diner.sales.customer_id ASC;
+````
+
+#### Answer:
+| customer_id | total_points | 
+| ----------- | ---------- |
+| A           | 860 |
+| B           | 940 |
+| C           | 360 |
+
+---
+**Query #10: In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
+````sql
+
+````
+
+#### Answer:
+
+
+---
+
 [View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
