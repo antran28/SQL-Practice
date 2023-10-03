@@ -65,7 +65,6 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 
 ## License
 This repository is licensed under MIT License - see [License](LICENSE) for more details
-
 ___________________________________
 
 <p>&copy; 2023 An Tran</p>
