@@ -63,6 +63,11 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [Pharmacy Analytics (Part 1)](https://datalemur.com/questions/top-profitable-drugs) | Easy |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%201).sql) |
 | [Pharmacy Analytics (Part 2)](https://datalemur.com/questions/duplicate-job-listings) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%202).sql) |
 
+| [User's Third Transaction](https://datalemur.com/questions/sql-third-transaction | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Cards%20Issued%20Difference.sql) |
+| [Sending vs. Opening Snaps](https://datalemur.com/questions/time-spent-snaps) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Compressed%20Mean.sql) |
+| [Pharmacy Analytics (Part 1)](https://datalemur.com/questions/top-profitable-drugs) | Easy |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%201).sql) |
+| [Pharmacy Analytics (Part 2)](https://datalemur.com/questions/duplicate-job-listings) | Easy | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%202).sql) |
+
 ## License
 This repository is licensed under MIT License - see [License](LICENSE) for more details
 ___________________________________
