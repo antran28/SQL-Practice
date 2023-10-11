@@ -12,8 +12,6 @@
   - [C. Ingredient Optimisation](#c-ingredient-optimisation)
   - [D. Pricing and Ratings](#d-pricing-and-ratings)
 
-***
-
 ## Business Task
 Danny is expanding his new Pizza Empire and at the same time, he wants to Uberize it, so Pizza Runner was launched!
 
@@ -33,27 +31,27 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
   - We want to avoid permanently changing the raw data via ```UPDATE``` commands if possible.
 
 ```sql
-    CREATE TEMP TABLE
-    	customer_orders_temp AS
-    	SELECT
-    		order_id,
-    		customer_id,
-    		pizza_id,
-    		CASE
-    			WHEN exclusions IS NULL or exclusions LIKE 'null' THEN ''
-    			ELSE exclusions
-    			END AS exclusions,
-    		CASE
-    			WHEN extras IS NULL or extras LIKE 'null' THEN ''
-    			ELSE extras
-    			END AS extras,
-    		order_time
-    	FROM pizza_runner.customer_orders;
-# Check the new temporary table
-    SELECT
-    	*
-    FROM
-    	customer_orders_temp;
+      CREATE TEMP TABLE
+      	customer_orders_temp AS
+      	SELECT
+      		order_id,
+      		customer_id,
+      		pizza_id,
+      		CASE
+      			WHEN exclusions IS NULL or exclusions LIKE 'null' THEN ''
+      			ELSE exclusions
+      			END AS exclusions,
+      		CASE
+      			WHEN extras IS NULL or extras LIKE 'null' THEN ''
+      			ELSE extras
+      			END AS extras,
+      		order_time
+      	FROM pizza_runner.customer_orders;
+  # Check the new temporary table
+      SELECT
+      	*
+      FROM
+      	customer_orders_temp;
 ```
 | order_id | customer_id | pizza_id | exclusions | extras | order_time               |
 | -------- | ----------- | -------- | ---------- | ------ | ------------------------ |
@@ -72,7 +70,6 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 | 10       | 104         | 1        |            |        | 2020-01-11T18:34:49.000Z |
 | 10       | 104         | 1        | 2, 6       | 1, 4   | 2020-01-11T18:34:49.000Z |
 
-***
 
 ### 🔨 Table: runner_orders
 **```runner_orders```**
@@ -83,35 +80,35 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 - Converting blanks, ```'null'``` and ```NaN``` into null values for cancellation
 - Saving the transformations in a temporary table ```runner_orders_temp```
 ```sql
-CREATE TEMP TABLE
-    	runner_orders_temp AS
-    SELECT
-    	order_id,
-        runner_id,
-        CASE
-        	WHEN pickup_time LIKE 'null' THEN NULL
-            ELSE pickup_time
-            END::timestamp AS pickup_time,
-    	CASE
-          WHEN distance = 'null' THEN NULL
-          ELSE (
-            SELECT NULLIF(regexp_replace(distance, '[^0-9.]','','g'), '')::numeric)
-          END AS distance,
-    	CASE
-        	WHEN duration LIKE 'null' THEN NULL
+  CREATE TEMP TABLE
+      	runner_orders_temp AS
+      SELECT
+      	order_id,
+          runner_id,
+          CASE
+          	WHEN pickup_time LIKE 'null' THEN NULL
+              ELSE pickup_time
+              END::timestamp AS pickup_time,
+      	CASE
+            WHEN distance = 'null' THEN NULL
             ELSE (
-              SELECT NULLIF(regexp_replace(duration, '[^0-9.]','','g'), '')::numeric)
-            END AS duration,
-    	CASE
-        	WHEN cancellation LIKE 'null' or cancellation LIKE '' THEN NULL
-            ELSE cancellation
-            END AS cancellation                  
-    FROM pizza_runner.runner_orders;
-# Check the new temporary table  
-    SELECT
-    	*
-    FROM
-    	runner_orders_temp;
+              SELECT NULLIF(regexp_replace(distance, '[^0-9.]','','g'), '')::numeric)
+            END AS distance,
+      	CASE
+          	WHEN duration LIKE 'null' THEN NULL
+              ELSE (
+                SELECT NULLIF(regexp_replace(duration, '[^0-9.]','','g'), '')::numeric)
+              END AS duration,
+      	CASE
+          	WHEN cancellation LIKE 'null' or cancellation LIKE '' THEN NULL
+              ELSE cancellation
+              END AS cancellation                  
+      FROM pizza_runner.runner_orders;
+  # Check the new temporary table  
+      SELECT
+      	*
+      FROM
+      	runner_orders_temp;
 ```
 | order_id | runner_id | pickup_time              | distance | duration | cancellation            |
 | -------- | --------- | ------------------------ | -------- | -------- | ----------------------- |
