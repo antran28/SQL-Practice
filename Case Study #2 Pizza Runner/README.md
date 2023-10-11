@@ -123,6 +123,10 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 | 9        | 2         |                          |          |          | Customer Cancellation   |
 | 10       | 1         | 2020-01-11T18:50:20.000Z | 10       | 10       |                         |
 
----
+***
+
+## Solution
+
+## A. Pizza Metrics
 
 [View on DB Fiddle](https://www.db-fiddle.com/f/7VcQKQwsS3CTkGRFG7vu98/65)
