@@ -129,4 +129,195 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 ## A. Pizza Metrics
 
+**How many pizzas were ordered?**
+```sql
+    SELECT
+    	COUNT(*) AS pizza_order_count
+    FROM customer_orders_temp;
+```
+| pizza_order_count |
+| ----------------- |
+| 14                |
+
+---
+**How many unique customer orders were made?**
+```sql
+    SELECT COUNT(DISTINCT order_id) AS unique_order_count
+    FROM customer_orders_temp;
+```
+| unique_order_count |
+| ------------------ |
+| 10                 |
+
+---
+**How many successful orders were delivered by each runner?**
+```sql
+    SELECT 
+      runner_id, 
+      COUNT(order_id) AS successful_orders
+    FROM runner_orders_temp
+    WHERE pickup_time IS NOT NULL
+    GROUP BY runner_id
+    ORDER BY runner_id ASC;
+```
+| runner_id | successful_orders |
+| --------- | ----------------- |
+| 1         | 4                 |
+| 2         | 3                 |
+| 3         | 1                 |
+
+---
+**How many of each type of pizza was delivered?**
+```sql
+    SELECT 
+    	customer_orders_temp.pizza_id AS pizza_type, 
+    	pizza_runner.pizza_names.pizza_name,
+    	COUNT(runner_orders_temp.order_id) AS delivered_pizza
+    FROM customer_orders_temp
+    	INNER JOIN runner_orders_temp
+    	ON customer_orders_temp.order_id = runner_orders_temp.order_id
+    	INNER JOIN pizza_runner.pizza_names
+    	ON customer_orders_temp.pizza_id = pizza_runner.pizza_names.pizza_id
+    WHERE pickup_time IS NOT NULL
+    GROUP BY pizza_type, pizza_runner.pizza_names.pizza_name
+    ORDER BY pizza_type ASC;
+```
+| pizza_type | pizza_name | delivered_pizza |
+| ---------- | ---------- | --------------- |
+| 1          | Meatlovers | 9               |
+| 2          | Vegetarian | 3               |
+
+---
+**How many Vegetarian and Meatlovers were ordered by each customer?**
+```sql
+    SELECT  
+        customer_orders_temp.customer_id,
+        pizza_runner.pizza_names.pizza_name,
+    	COUNT(customer_orders_temp.pizza_id) AS ordered_pizza
+    FROM customer_orders_temp
+    	INNER JOIN pizza_runner.pizza_names
+    	ON customer_orders_temp.pizza_id = pizza_runner.pizza_names.pizza_id
+    GROUP BY pizza_runner.pizza_names.pizza_name, customer_orders_temp.customer_id
+    ORDER BY customer_orders_temp.customer_id ASC;
+```
+| customer_id | pizza_name | ordered_pizza |
+| ----------- | ---------- | ------------- |
+| 101         | Meatlovers | 2             |
+| 101         | Vegetarian | 1             |
+| 102         | Meatlovers | 2             |
+| 102         | Vegetarian | 1             |
+| 103         | Meatlovers | 3             |
+| 103         | Vegetarian | 1             |
+| 104         | Meatlovers | 3             |
+| 105         | Vegetarian | 1             |
+
+---
+**What was the maximum number of pizzas delivered in a single order?**
+```sql
+    WITH pizza_per_order AS(
+    	SELECT
+    		customer_orders_temp.order_id, 
+    		COUNT(customer_orders_temp.pizza_id) AS ordered_pizza
+    	FROM customer_orders_temp
+    		INNER JOIN runner_orders_temp
+    	ON customer_orders_temp.order_id = runner_orders_temp.order_id
+    	WHERE runner_orders_temp.pickup_time IS NOT NULL
+    	GROUP BY customer_orders_temp.order_id
+    	ORDER BY customer_orders_temp.order_id ASC)
+    
+    SELECT
+    	MAX(ordered_pizza) AS max_pizza_per_ordered
+    FROM
+    	pizza_per_order;
+```
+| max_pizza_per_ordered |
+| --------------------- |
+| 3                     |
+
+---
+**For each customer, how many delivered pizzas had at least 1 change and how many had no changes?**
+```sql
+    SELECT
+    	customer_orders_temp.customer_id,
+    	SUM(
+    		CASE WHEN customer_orders_temp.exclusions <> '' OR customer_orders_temp.extras <> '' THEN 1
+          	ELSE 0
+          	END) AS at_least_1_change,
+    	SUM(
+    		CASE WHEN customer_orders_temp.exclusions = '' OR customer_orders_temp.extras = '' THEN 1
+          	ELSE 0
+          	END) AS no_change
+    FROM
+    	customer_orders_temp
+    INNER JOIN
+    	runner_orders_temp ON customer_orders_temp.order_id = runner_orders_temp.order_id
+    WHERE runner_orders_temp.pickup_time IS NOT NULL
+    GROUP BY customer_orders_temp.customer_id
+    ORDER BY customer_orders_temp.customer_id;
+```
+| customer_id | at_least_1_change | no_change |
+| ----------- | ----------------- | --------- |
+| 101         | 0                 | 2         |
+| 102         | 0                 | 3         |
+| 103         | 3                 | 3         |
+| 104         | 2                 | 2         |
+| 105         | 1                 | 1         |
+
+---
+**How many pizzas were delivered that had both exclusions and extras?**
+```sql
+    SELECT
+    	COUNT(customer_orders_temp.order_id) AS delivered_special
+    FROM
+    	customer_orders_temp
+    INNER JOIN
+    	runner_orders_temp ON customer_orders_temp.order_id = runner_orders_temp.order_id
+    WHERE 
+    	runner_orders_temp.pickup_time IS NOT NULL
+    	AND
+    	(customer_orders_temp.exclusions <> '' AND customer_orders_temp.extras <> '');
+```
+| delivered_special |
+| ----------------- |
+| 1                 |
+
+---
+**What was the total volume of pizzas ordered for each hour of the day?**
+```sql
+    SELECT
+    	EXTRACT(HOUR FROM order_time) AS hour,
+        COUNT(order_id) AS total_orders
+    FROM customer_orders_temp
+    GROUP BY hour
+    ORDER BY hour ASC;
+```
+| hour | total_orders |
+| ---- | ------------ |
+| 11   | 1            |
+| 13   | 3            |
+| 18   | 3            |
+| 19   | 1            |
+| 21   | 3            |
+| 23   | 3            |
+
+---
+**What was the volume of orders for each day of the week?**
+```sql
+    SELECT
+    	TO_CHAR(order_time, 'Day') AS day_of_week,
+    	COUNT(order_id) AS total_orders
+    FROM customer_orders_temp
+    GROUP BY day_of_week
+    ORDER BY day_of_week ASC;
+```
+| day_of_week | total_orders |
+| ----------- | ------------ |
+| Friday      | 1            |
+| Saturday    | 5            |
+| Thursday    | 3            |
+| Wednesday   | 5            |
+
+---
+
+
 [View on DB Fiddle](https://www.db-fiddle.com/f/7VcQKQwsS3CTkGRFG7vu98/65)
