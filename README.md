@@ -66,7 +66,7 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [Sending vs. Opening Snaps](https://datalemur.com/questions/time-spent-snaps) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Sending%20vs.%20Opening%20Snaps.sql) |
 | [Tweets' Rolling Averages](https://datalemur.com/questions/rolling-average-tweets) | Medium |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%201).sql) |
 | [Highest-Grossing Items](https://datalemur.com/questions/sql-highest-grossing) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%202).sql) |
-| [Pharmacy Analytics (Part 1)](https://datalemur.com/questions/top-profitable-drugs) | Medium |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%201).sql) |
+| [Signup Activation Rate](https://datalemur.com/questions/signup-confirmation-rate) | Medium |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Pharmacy%20Analytics%20(Part%201).sql) |
 
 ## License
 This repository is licensed under MIT License - see [License](LICENSE) for more details
