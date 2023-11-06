@@ -67,6 +67,7 @@ These are scripts that answer questions from <a href="https://hackerrank.com">ha
 | [Tweets' Rolling Averages](https://datalemur.com/questions/rolling-average-tweets) | Medium |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Tweets'%20Rolling%20Averages.sql) |
 | [Highest-Grossing Items](https://datalemur.com/questions/sql-highest-grossing) | Medium | [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Highest-Grossing%20Items.sql) |
 | [Signup Activation Rate](https://datalemur.com/questions/signup-confirmation-rate) | Medium |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Signup%20Activation%20Rate.sql) |
+| [Signup Activation Rate](https://datalemur.com/questions/signup-confirmation-rate) | Medium |  [Solution](https://github.com/antran28/SQL-Practice/blob/main/Solution/Signup%20Activation%20Rate.sql) |
 
 ## License
 This repository is licensed under MIT License - see [License](LICENSE) for more details
