@@ -45,3 +45,4 @@ When customers upgrade their account from a basic plan to a pro or annual pro pl
 When customers churn, they will keep their access until the end of their current billing period, but the start_date will be technically the day they decided to cancel their service.
 
 ***
+## Question and Solution
