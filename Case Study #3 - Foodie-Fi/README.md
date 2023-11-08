@@ -251,7 +251,7 @@ When customers churn, they will keep their access until the end of their current
 
 ---
 **10. Can you further breakdown this average value into 30 day periods (i.e. 0-30 days, 31-60 days etc)**
-
+```sql
     WITH customer_upgrades AS (
         SELECT (annual_start_date - s_basic.start_date) AS date_diff
         FROM (
@@ -280,7 +280,7 @@ When customers churn, they will keep their access until the end of their current
     FROM customer_upgrades
     GROUP BY period
     ORDER BY period;
-
+```sql
 | period  | average_days |
 | ------- | ------------ |
 | 0-30    | 9.5          |
