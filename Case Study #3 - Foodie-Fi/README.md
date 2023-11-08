@@ -47,19 +47,19 @@ When customers churn, they will keep their access until the end of their current
 ***
 ## Question and Solution
 
-**Query #1**
-
+**1. How many customers has Foodie-Fi ever had?**
+```sql
     SELECT COUNT(DISTINCT customer_id)
     	AS unique_customers
     FROM foodie_fi.subscriptions;
-
+```
 | unique_customers |
 | ---------------- |
 | 1000             |
 
 ---
-**Query #2**
-
+**2. What is the monthly distribution of trial plan start_date values for our dataset - use the start of the month as the group by value**
+```sql
     SELECT 
     	COUNT(foodie_fi.subscriptions.customer_id) AS total_sub,
     	DATE_PART('month', foodie_fi.subscriptions.start_date) AS start_of_month
@@ -69,7 +69,7 @@ When customers churn, they will keep their access until the end of their current
     WHERE foodie_fi.plans.plan_name = 'trial'
     GROUP BY start_of_month, foodie_fi.plans.plan_name
     ORDER BY start_of_month ASC;
-
+```
 | total_sub | start_of_month |
 | --------- | -------------- |
 | 88        | 1              |
@@ -86,8 +86,8 @@ When customers churn, they will keep their access until the end of their current
 | 84        | 12             |
 
 ---
-**Query #3**
-
+**3. What plan start_date values occur after the year 2020 for our dataset? Show the breakdown by count of events for each plan_name**
+```sql
     SELECT
     	foodie_fi.plans.plan_name,
     	COUNT(foodie_fi.subscriptions.customer_id) AS total_sub,
@@ -98,7 +98,7 @@ When customers churn, they will keep their access until the end of their current
     GROUP BY foodie_fi.plans.plan_name, year
     HAVING EXTRACT(YEAR FROM foodie_fi.subscriptions.start_date) >2020
     ORDER BY total_sub;
-
+```
 | plan_name     | total_sub | year |
 | ------------- | --------- | ---- |
 | basic monthly | 8         | 2021 |
@@ -107,8 +107,8 @@ When customers churn, they will keep their access until the end of their current
 | churn         | 71        | 2021 |
 
 ---
-**Query #4**
-
+**4. What is the customer count and percentage of customers who have churned rounded to 1 decimal place?**
+```sql
     SELECT
         COUNT(DISTINCT CASE WHEN p.plan_name = 'churn' THEN s.customer_id END) AS total_churn,
         ROUND(
@@ -118,14 +118,14 @@ When customers churn, they will keep their access until the end of their current
         ) AS churn_percentage
     FROM foodie_fi.plans AS p
     JOIN foodie_fi.subscriptions AS s ON p.plan_id = s.plan_id;
-
+```
 | total_churn | churn_percentage |
 | ----------- | ---------------- |
 | 307         | 30.7             |
 
 ---
-**Query #5**
-
+**5. How many customers have churned straight after their initial free trial - what percentage is this rounded to the nearest whole number?**
+```sql
     WITH end_trial AS(
     	SELECT
     		p.plan_name,
@@ -155,14 +155,14 @@ When customers churn, they will keep their access until the end of their current
     JOIN start_churn AS c
     ON c.customer_id = e.customer_id
     WHERE e.end_trial_date=c.start_churn_date;
-
+```
 | total_churn | churn_percent |
 | ----------- | ------------- |
 | 92          | 9.2           |
 
 ---
-**Query #6**
-
+**6. What is the number and percentage of customer plans after their initial free trial?**
+```sql
     SELECT 
     	p.plan_name,
     	COUNT(DISTINCT s.customer_id) AS total_customer,
@@ -179,26 +179,10 @@ When customers churn, they will keep their access until the end of their current
 | churn         | 307            | 30.7             |
 | pro annual    | 258            | 25.8             |
 | pro monthly   | 539            | 53.9             |
-
+```
 ---
-**Query #7**
-
-    SELECT 
-    	s.start_date,
-    	s.plan_id,
-    	s.customer_id
-    FROM foodie_fi.plans AS p
-    JOIN foodie_fi.subscriptions AS s ON p.plan_id = s.plan_id
-    WHERE s.start_date = '2020-12-31'
-    GROUP BY s.customer_id, s.plan_id, s.start_date;
-
-| start_date               | plan_id | customer_id |
-| ------------------------ | ------- | ----------- |
-| 2020-12-31T00:00:00.000Z | 4       | 711         |
-
----
-**Query #8**
-
+**7. What is the customer count and percentage breakdown of all 5 plan_name values at 2020-12-31?**
+```sql
     WITH date_table AS(
     SELECT
         customer_id,
@@ -221,7 +205,7 @@ When customers churn, they will keep their access until the end of their current
     	ON c.plan_id = p.plan_id
     WHERE next_date IS NULL 
     GROUP BY p.plan_name;
-
+```
 | plan_name     | total_customer | customer_percent |
 | ------------- | -------------- | ---------------- |
 | basic monthly | 224            | 22.4             |
@@ -231,22 +215,22 @@ When customers churn, they will keep their access until the end of their current
 | trial         | 19             | 1.9              |
 
 ---
-**Query #9**
-
+**8. How many customers have upgraded to an annual plan in 2020?**
+```sql
     SELECT
     	COUNT(DISTINCT s.customer_id) AS total_customer
     FROM foodie_fi.plans AS p
     JOIN foodie_fi.subscriptions AS s 
     	ON p.plan_id = s.plan_id
     WHERE EXTRACT(YEAR FROM s.start_date)=2020 AND p.plan_name='pro annual';
-
+```
 | total_customer |
 | -------------- |
 | 195            |
 
 ---
-**Query #10**
-
+**9. How many days on average does it take for a customer to an annual plan from the day they join Foodie-Fi?**
+```sql
     WITH annual_date AS(
     	SELECT
     		s.customer_id,
@@ -260,13 +244,13 @@ When customers churn, they will keep their access until the end of their current
     JOIN foodie_fi.subscriptions AS s
     ON a.customer_id=s.customer_id
     WHERE s.plan_id=0;
-
+```
 | date_diff |
 | --------- |
 | 104.6     |
 
 ---
-**Query #11**
+**10. Can you further breakdown this average value into 30 day periods (i.e. 0-30 days, 31-60 days etc)**
 
     WITH customer_upgrades AS (
         SELECT (annual_start_date - s_basic.start_date) AS date_diff
@@ -313,8 +297,8 @@ When customers churn, they will keep their access until the end of their current
 | 90-120  | 99.8         |
 
 ---
-**Query #12**
-
+**11. How many customers downgraded from a pro monthly to a basic monthly plan in 2020?**
+```sql
     WITH downgrade_customer AS(
     SELECT
     	s.plan_id,
@@ -329,7 +313,7 @@ When customers churn, they will keep their access until the end of their current
     SELECT COUNT(DISTINCT d.customer_id) AS total
     FROM downgrade_customer AS d
     WHERE d.plan_id=2 AND d.next_plan=1;
-
+```
 | total |
 | ----- |
 | 0     |
