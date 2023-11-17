@@ -280,7 +280,7 @@ When customers churn, they will keep their access until the end of their current
     FROM customer_upgrades
     GROUP BY period
     ORDER BY period;
-```sql
+```
 | period  | average_days |
 | ------- | ------------ |
 | 0-30    | 9.5          |
