@@ -172,14 +172,14 @@ When customers churn, they will keep their access until the end of their current
     JOIN foodie_fi.subscriptions AS s ON p.plan_id = s.plan_id
     WHERE NOT p.plan_name='trial'
     GROUP BY p.plan_name;
-
+```
 | plan_name     | total_customer | customer_percent |
 | ------------- | -------------- | ---------------- |
 | basic monthly | 546            | 54.6             |
 | churn         | 307            | 30.7             |
 | pro annual    | 258            | 25.8             |
 | pro monthly   | 539            | 53.9             |
-```
+
 ---
 **7. What is the customer count and percentage breakdown of all 5 plan_name values at 2020-12-31?**
 ```sql
